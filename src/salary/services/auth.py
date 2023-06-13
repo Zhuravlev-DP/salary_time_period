@@ -33,16 +33,24 @@ def get_current_user(token: str = Depends(oauth2_scheme)) -> models.User:
 
 
 class AuthService:
+    """Регистрация и авторизация пользователей."""
     @classmethod
-    def verify_password(cls, plain_password: str, hashed_password: str) -> bool:
+    def verify_password(
+        cls,
+        plain_password: str,
+        hashed_password: str
+    ) -> bool:
+        """Проверка пароля."""
         return bcrypt.verify(plain_password, hashed_password)
 
     @classmethod
     def hash_password(cls, password: str) -> str:
+        """Хэширование пароля."""
         return bcrypt.hash(password)
 
     @classmethod
     def verify_token(cls, token: str) -> models.User:
+        """Проверка токена."""
         exception = HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail='Could not validate credentials',
@@ -68,6 +76,7 @@ class AuthService:
 
     @classmethod
     def create_token(cls, user: tables.User) -> models.Token:
+        """Создание токена."""
         user_data = models.User.from_orm(user)
         now = datetime.utcnow()
         payload = {
@@ -91,6 +100,7 @@ class AuthService:
         self,
         user_data: models.UserCreate,
     ) -> models.Token:
+        """Регистрация пользователя."""
         user = tables.User(
             email=user_data.email,
             username=user_data.username,
@@ -105,6 +115,7 @@ class AuthService:
         username: str,
         password: str,
     ) -> models.Token:
+        """Аутентификация пользователя."""
         exception = HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail='Incorrect username or password',

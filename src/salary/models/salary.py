@@ -5,9 +5,7 @@ from pydantic import BaseModel
 
 
 class Salary(BaseModel):
-    id: Optional[int]
-    user_id: Optional[int]
-    salary: Optional[int]
+    salary: Optional[int] = None
     date_next_promotion: Optional[date]
 
     class Config:

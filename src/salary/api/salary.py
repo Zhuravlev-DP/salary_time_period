@@ -1,10 +1,6 @@
-from typing import List
-
 from fastapi import (
     APIRouter,
     Depends,
-    Response,
-    status,
 )
 
 from .. import models

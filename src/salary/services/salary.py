@@ -1,23 +1,15 @@
-from typing import (
-    List,
-    Optional,
-)
-
 from fastapi import (
     Depends,
     HTTPException,
-    status,
 )
 from sqlalchemy.orm import Session
 
-from .. import (
-    models,
-    tables,
-)
+from .. import tables
 from ..database import get_session
 
 
 class SalaryService:
+    """Получение данных о зарплате пользователя."""
     def __init__(self, session: Session = Depends(get_session)):
         self.session = session
 
@@ -27,5 +19,9 @@ class SalaryService:
             .query(tables.Salary)
             .filter(tables.Salary.user_id == user_id).first()
         )
-        print(salary)
+        if not salary:
+            raise HTTPException(
+                status_code=404,
+                detail='Данные о зарплате отсутствуют'
+            )
         return salary

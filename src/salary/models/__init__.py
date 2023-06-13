@@ -3,6 +3,4 @@ from .auth import (
     User,
     UserCreate,
 )
-from .salary import (
-    Salary,
-)
+from .salary import Salary

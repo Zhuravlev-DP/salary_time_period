@@ -1,9 +1,6 @@
 from fastapi import APIRouter
 
-from . import (
-    auth,
-    salary,
-)
+from . import auth, salary
 
 
 router = APIRouter()
