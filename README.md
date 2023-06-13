@@ -13,11 +13,12 @@ git clone https://gitlab.com/Zhuravlev-DP/shift_test_salary.git
 
 - Создание виртуального окружения и установка зависимостей
 ```bash
-python -m venv venv
-. venv/Scripts/activate (windows)
-. venv/bin/activate (linux)
+. python -m venv venv (windows)
+. python3 -m venv venv (linux)
+. source venv/Scripts/activate (windows)
+. source venv/bin/activate (linux)
 pip install --upgade pip
-pip install -r -requirements.txt
+pip install -r requirements.txt
 ```
 - Запуск сервера
 ```bash
