@@ -7,9 +7,9 @@ FastAPI, SQLAlchemy, SQLite
 ## Установка и запуск
 - Клонирование удаленного репозитория
 ```bash
-git clone https://gitlab.com/Zhuravlev-DP/shift_test_salary.git
+git clone https://gitlab.com/Zhuravlev-DP/salary_time_period.git
 ```
-- В директории /shift_test_salary создайте файл .env, используя образец [.env.example](shift_test_salary/.env.example)
+- В директории /salary_time_period создайте файл .env, используя образец [.env.example](salary_time_period/.env.example)
 
 - Создание виртуального окружения и установка зависимостей
 ```bash
@@ -35,7 +35,7 @@ python main.py
 ```
 
 ## Документация
-- Документация к проекту в формате OpenAPI доступна по адресу [`http://localhost:8000/docs/`](`http://localhost:8000/docs`)
+- Документация к проекту в формате OpenAPI доступна по адресу [`http://localhost:8000/docs/`](http://localhost:8000/docs)
 
 ### Планы по доработке и развитию приложения
 - Покрыть тестами.
